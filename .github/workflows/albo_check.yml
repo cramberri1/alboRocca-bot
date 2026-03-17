@@ -1,0 +1,49 @@
+name: Albo Pretorio Check
+
+on:
+  schedule:
+    # Ogni 30 minuti, dalle 7:00 alle 22:00 ora italiana (UTC+1/+2)
+    # In UTC: dalle 6:00 alle 21:00
+    - cron: '*/30 6-21 * * *'
+  workflow_dispatch:  # permette di avviarlo manualmente dalla UI di GitHub
+
+jobs:
+  check:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
+
+      - name: Configura Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+
+      - name: Installa dipendenze
+        run: pip install -r requirements.txt
+
+      - name: Ripristina database atti visti
+        uses: actions/cache@v4
+        with:
+          path: |
+            seen_items.json
+            last_heartbeat.txt
+          key: seen-items-${{ github.run_id }}
+          restore-keys: |
+            seen-items-
+
+      - name: Esegui controllo albo
+        env:
+          BOT_TOKEN: ${{ secrets.BOT_TOKEN }}
+          CHAT_IDS: ${{ secrets.CHAT_IDS }}
+        run: python bot.py --once
+
+      - name: Salva database aggiornato
+        uses: actions/cache/save@v4
+        if: always()
+        with:
+          path: |
+            seen_items.json
+            last_heartbeat.txt
+          key: seen-items-${{ github.run_id }}

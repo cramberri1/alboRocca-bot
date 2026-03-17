@@ -1,0 +1,823 @@
+ï»¿
+                        <div class="container" id="main_container">
+                <div class="row justify-content-center">
+                    <div class="col-12 col-lg-10">
+                        <div class="cmp-breadcrumbs" role="navigation">
+                            <nav class="breadcrumb-container">
+                                <ol class="breadcrumb p-0" data-element="breadcrumb">
+                                    <li class="breadcrumb-item">
+                                        <a href="https://www.comune.roccabascerana.av.it/homepage.html">Home</a>
+                                        <span class="separator">/</span>
+                                    </li>
+                                    <li class="breadcrumb-item">
+                                        <a href="https://www.comune.roccabascerana.av.it/amministrazione/amministrazione.html">Amministrazione</a>
+                                        <span class="separator">/</span>
+                                    </li> 
+                                    <li class="breadcrumb-item">
+                                        <a href="https://www.comune.roccabascerana.av.it/EG0/EGSCHTST20.HBL?en=e1396&MESSA=PUBBLICA">Documenti e dati</a>
+                                        <span class="separator">/</span>
+                                    </li>
+                                    <li class="breadcrumb-item">
+                                        <span>Albo pretorio</span>
+                                    </li>
+                                </ol>
+                            </nav>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="container">
+                <div class="row justify-content-center">
+                    <div class="col-12 col-lg-10">
+                        <div class="cmp-hero">
+                            <section class="it-hero-wrapper bg-white align-items-start">
+                                <div class="it-hero-text-wrapper pt-0 ps-0 pb-4 pb-lg-60">
+                                    <h1 class="text-black hero-title" data-element="page-name">
+                                        Albo pretorio
+                                    </h1>
+                                </div>
+                            </section>
+                        </div>
+                    </div>
+                    <hr class="d-none d-lg-block mt-2 mb-2">
+                    <div class="d-flex flex-column flex-md-row justify-content-between align-items-start align-items-md-center mt-4 mb-5">
+                        <h3 class="title-xxlarge order-2 order-md-1">Pubblicazioni attuali</h3>
+                    </div>
+                					<div class="container mt-4">
+                        <form method="post" name="ricerca">
+                            <div class="row">
+                                <div class="form-group col-lg-3">
+                                    <label for="numpubb">Numero pubblicazione</label>
+                                    <input type="number" class="form-control" name="numpubb" id="numpubb" value="" min="0">
+                                </div>
+                                <div class="form-group col-lg-3">
+                                    <label for="annpubb">Anno pubblicazione</label>
+                                    <input type="number" class="form-control" id="annpubb" value="" min="0">
+                                </div>
+                                <div class="form-group col-lg-3">
+                                    <label for="dataipu" class="active">Data pubblicazione dal</label>
+                                    <input type="date" class="form-control" id="dataipu" value="0">
+                                </div>
+                                <div class="form-group col-lg-3">
+                                    <label for="datafpu" class="active">Data pubblicazione al</label>
+                                    <input type="date" class="form-control" id="datafpu" value="0">
+                                </div>
+                            </div>
+                            <div class="row">
+                                <div class="form-group col-lg-6">
+                                    <label for="mitt">Mittente</label>
+                                    <input type="text" class="form-control" id="mitt" value="">
+                                </div>
+                                <div class="form-group col-lg-6">
+                                    <label for="ogg">Oggetto</label>
+                                    <input type="text" class="form-control" id="ogg" value="">
+                                </div>
+                            </div>
+                            <div class="row">
+                                <div class="form-group col-lg-6">
+                                    <label for="numatt">Numero atto</label>
+                                    <input type="text" class="form-control" id="numatt" value="">
+                                </div>                            
+                                <div class="form-group col-lg-3">
+                                    <label for="dataiat" class="active">Data atto dal</label>
+                                    <input type="date" class="form-control" id="dataiat" value="0">
+                                </div>
+                                <div class="form-group col-lg-3">
+                                    <label for="datafat" class="active">Data atto al</label>
+                                    <input type="date" class="form-control" id="datafat" value="0">
+                                </div>
+                            </div>
+                            <div class="row">
+                                <div class="form-group col-lg-6">
+                                    <label for="nreggen">Numero registro generale</label>
+                                    <input type="text" class="form-control" id="nreggen" value="">
+                                </div>                            
+                                <div class="form-group col-lg-3">
+                                    <label for="dataireg" class="active">Data registro dal</label>
+                                    <input type="date" class="form-control" id="dataireg" value="0">
+                                </div>
+                                <div class="form-group col-lg-3">
+                                    <label for="datafreg" class="active">Data registro al</label>
+                                    <input type="date" class="form-control" id="datafreg" value="0">
+                                </div>
+                            </div>
+                            <div class="row">
+                                <div class="select-wrapper col-lg-12 mb-5">
+                                    <label for="tipo_atto">Tipo pubblicazione</label>                                   
+                                    <div class="input-group">
+                                        <select id="tipo_atto" class="form-control">
+                                            <option selected="" value="">
+                                                Seleziona opzione
+                                            </option>
+                                            <option value="1" provaaaa class="">
+                                                ABUSIVISMO EDILIZIO
+                                            </option>
+                                            <option value="2" provaaaa class="">
+                                                AFFISSIONE MANIFESTI CANDIDATURE
+                                            </option>
+                                            <option value="3" provaaaa class="">
+                                                ALLEGATO DETERMINA
+                                            </option>
+                                            <option value="4" provaaaa class="">
+                                                AUTORIZZAZIONE
+                                            </option>
+                                            <option value="5" provaaaa class="">
+                                                AUTORIZZAZIONEPAESISTICO-AMBIENTALE
+                                            </option>
+                                            <option value="6" provaaaa class="">
+                                                AVVIO PROCEDMENTO
+                                            </option>
+                                            <option value="7" provaaaa class="">
+                                                AVVISI DI DEPOSITO
+                                            </option>
+                                            <option value="8" provaaaa class="">
+                                                AVVISIO AD OPPONENDUM
+                                            </option>
+                                            <option value="9" provaaaa class="">
+                                                AVVISO
+                                            </option>
+                                            <option value="10" provaaaa class="">
+                                                AVVISO AI CREDITORI
+                                            </option>
+                                            <option value="11" provaaaa class="">
+                                                AVVISO CESSIONE CREDITI
+                                            </option>
+                                            <option value="12" provaaaa class="no_reggen">
+                                                AVVISO DI ACCERTAMENTO
+                                            </option>
+                                            <option value="13" provaaaa class="">
+                                                AVVISO DI ASTA PUBBLICA
+                                            </option>
+                                            <option value="14" provaaaa class="">
+                                                AVVISO DI ASTA PUBBLICA
+                                            </option>
+                                            <option value="15" provaaaa class="">
+                                                AVVISO DI GARA
+                                            </option>
+                                            <option value="16" provaaaa class="">
+                                                AVVISO DI GARA ESPERITA
+                                            </option>
+                                            <option value="17" provaaaa class="">
+                                                AVVISO ELETTORI
+                                            </option>
+                                            <option value="18" provaaaa class="">
+                                                AVVISO PUBBLICO
+                                            </option>
+                                            <option value="19" provaaaa class="">
+                                                AVVISO- PROROGA
+                                            </option>
+                                            <option value="20" provaaaa class="">
+                                                BANDO
+                                            </option>
+                                            <option value="21" provaaaa class="">
+                                                BANDO DI CONCORSO
+                                            </option>
+                                            <option value="22" provaaaa class="">
+                                                BANDO DI GARA
+                                            </option>
+                                            <option value="23" provaaaa class="">
+                                                BANDO TERME
+                                            </option>
+                                            <option value="24" provaaaa class="">
+                                                CAMBIO NOME O COGNOME
+                                            </option>
+                                            <option value="25" provaaaa class="">
+                                                CANCELLAZIONE PER IRREPERIBILITA'
+                                            </option>
+                                            <option value="26" provaaaa class="">
+                                                CANDIDATI CARICA PRESIDENTE REGIONE
+                                            </option>
+                                            <option value="27" provaaaa class="">
+                                                COMUNICATO
+                                            </option>
+                                            <option value="28" provaaaa class="">
+                                                COMUNICATO STAMPA
+                                            </option>
+                                            <option value="29" provaaaa class="">
+                                                CONCORSO
+                                            </option>
+                                            <option value="30" provaaaa class="">
+                                                CONFERENZA DI SERVIZIO
+                                            </option>
+                                            <option value="31" provaaaa class="">
+                                                CONVOCAZIONE COMIZI ELETTORALI
+                                            </option>
+                                            <option value="32" provaaaa class="">
+                                                CONVOCAZIONE COMMISSIONE
+                                            </option>
+                                            <option value="33" provaaaa class="">
+                                                CONVOCAZIONE CONSIGLIO
+                                            </option>
+                                            <option value="34" provaaaa class="">
+                                                DECISIONI DELLA COMMISSIONE ELETTORALE
+                                            </option>
+                                            <option value="35" provaaaa class="">
+                                                DECRETI
+                                            </option>
+                                            <option value="36" provaaaa class="">
+                                                DECRETO DIRIGENZIALE
+                                            </option>
+                                            <option value="37" provaaaa class="">
+                                                DECRETO SINDACALE
+                                            </option>
+                                            <option value="38" provaaaa class="">
+                                                DELIBERA
+                                            </option>
+                                            <option value="39" provaaaa class="">
+                                                DELIBERA COMMISSARIO AD ACTA
+                                            </option>
+                                            <option value="40" provaaaa class="">
+                                                DELIBERA COMMISSARIO LIQUIDATORE
+                                            </option>
+                                            <option value="41" provaaaa class="">
+                                                DELIBERE DI CONSIGLIO
+                                            </option>
+                                            <option value="42" provaaaa class="">
+                                                DELIBERE DI GIUNTA
+                                            </option>
+                                            <option value="43" provaaaa class="">
+                                                DEPOSITO
+                                            </option>
+                                            <option value="44" provaaaa class="">
+                                                DETERMINA
+                                            </option>
+                                            <option value="45" provaaaa class="">
+                                                DETERMINAZIONI
+                                            </option>
+                                            <option value="46" provaaaa class="">
+                                                DICHIARAZIONE DI EFFICACIA
+                                            </option>
+                                            <option value="47" provaaaa class="">
+                                                DISPOSIZIONE
+                                            </option>
+                                            <option value="48" provaaaa class="">
+                                                ELENCHI GIUDICI POPOLARI
+                                            </option>
+                                            <option value="49" provaaaa class="">
+                                                ELENCO GENERALE
+                                            </option>
+                                            <option value="50" provaaaa class="">
+                                                ELENCO ISCRIZIONE LISTA LEVA
+                                            </option>
+                                            <option value="51" provaaaa class="">
+                                                ELENCO NON DICIOTTENNI
+                                            </option>
+                                            <option value="52" provaaaa class="">
+                                                ELENCO SCRUTATORI E SUPPLENTI
+                                            </option>
+                                            <option value="53" provaaaa class="">
+                                                ELETTORI ESTERO
+                                            </option>
+                                            <option value="54" provaaaa class="">
+                                                ELEZIONE CONSIGLIERE REGIONALE
+                                            </option>
+                                            <option value="55" provaaaa class="">
+                                                ERRATA CORRIGE
+                                            </option>
+                                            <option value="56" provaaaa class="">
+                                                ESITI DI GARA
+                                            </option>
+                                            <option value="57" provaaaa class="">
+                                                INVITO
+                                            </option>
+                                            <option value="58" provaaaa class="">
+                                                ISCIZIONE LISTE ELETTORALE
+                                            </option>
+                                            <option value="59" provaaaa class="">
+                                                ISCRIZIONE ANAGRAFICA -NON ACCOGLIMENTO
+                                            </option>
+                                            <option value="60" provaaaa class="">
+                                                ISTANZA UNICA
+                                            </option>
+                                            <option value="61" provaaaa class="">
+                                                ISTANZA UNICA
+                                            </option>
+                                            <option value="62" provaaaa class="">
+                                                LUTTO CITTADINO
+                                            </option>
+                                            <option value="63" provaaaa class="">
+                                                MANIFESTO
+                                            </option>
+                                            <option value="64" provaaaa class="">
+                                                MODELLO DI ADESIONE
+                                            </option>
+                                            <option value="65" provaaaa class="">
+                                                NOTIFICA
+                                            </option>
+                                            <option value="66" provaaaa class="">
+                                                NOTIFICA CONTRIBUENTE
+                                            </option>
+                                            <option value="67" provaaaa class="">
+                                                NOTIFICA CONTRIBUENTE
+                                            </option>
+                                            <option value="68" provaaaa class="">
+                                                ORDINANZA
+                                            </option>
+                                            <option value="69" provaaaa class="">
+                                                ORDINANZA DIRIGENZIALE
+                                            </option>
+                                            <option value="70" provaaaa class="">
+                                                ORDINANZA INGIUNTIVA
+                                            </option>
+                                            <option value="71" provaaaa class="">
+                                                ORGANIZZAZIONE LOTTERIE
+                                            </option>
+                                            <option value="72" provaaaa class="">
+                                                PERMESSI DI COSTRUIRE
+                                            </option>
+                                            <option value="73" provaaaa class="">
+                                                PERMESSO DI COSTRUIRE
+                                            </option>
+                                            <option value="74" provaaaa class="">
+                                                PERMESSO DI COSTRUIRE IN SANATORIA
+                                            </option>
+                                            <option value="75" provaaaa class="">
+                                                PROCEDURA APERTA
+                                            </option>
+                                            <option value="76" provaaaa class="">
+                                                PROGRAMMA  AMMINISTRATIVO
+                                            </option>
+                                            <option value="77" provaaaa class="">
+                                                PROGRAMMA TRIENNALE OPERE PUBBLICHE
+                                            </option>
+                                            <option value="78" provaaaa class="">
+                                                PROVVEDIMENTO
+                                            </option>
+                                            <option value="79" provaaaa class="">
+                                                PUBBLICAZIONE DI MATRIMONIO
+                                            </option>
+                                            <option value="80" provaaaa class="">
+                                                PUBBLICAZIONE DI MATRIMONIO
+                                            </option>
+                                            <option value="81" provaaaa class="">
+                                                PUBBLICAZIONE ELENCHI
+                                            </option>
+                                            <option value="82" provaaaa class="">
+                                                PUBBLICAZIONE PER IRREPERIBILITA'
+                                            </option>
+                                            <option value="83" provaaaa class="">
+                                                RENDE NOTO
+                                            </option>
+                                            <option value="84" provaaaa class="">
+                                                REPERIBILITA'  DEL PERSONALE
+                                            </option>
+                                            <option value="85" provaaaa class="">
+                                                RETTIFICA ORDINANZA
+                                            </option>
+                                            <option value="86" provaaaa class="">
+                                                REVISIONE LISTE
+                                            </option>
+                                            <option value="87" provaaaa class="">
+                                                REVOCA ORDINANZA
+                                            </option>
+                                            <option value="88" provaaaa class="">
+                                                RICHIESTA AUTORIZZAZIONE ART.23 L.R.11/96
+                                            </option>
+                                            <option value="89" provaaaa class="">
+                                                RICHIESTA AUTORIZZAZIONE LAVORI REALIZ.RETE FOGNAR
+                                            </option>
+                                            <option value="90" provaaaa class="">
+                                                RICHIESTA ISCRIZIONE ANAGRAFICA
+                                            </option>
+                                            <option value="91" provaaaa class="">
+                                                RICHIESTA SVINCOLO IDROGEOLOGICO
+                                            </option>
+                                            <option value="92" provaaaa class="">
+                                                SVINCOLO IDROGEOLOGICO
+                                            </option>
+                                            <option value="93" provaaaa class="">
+                                                VERBALE
+                                            </option>
+                                            <option value="94" provaaaa class="">
+                                                VERBALE COMMISSIONE
+                                            </option>
+                                        </select>
+                                        <div class="input-group-append">
+                                            <button onclick="MC03()" class="btn btn-primary" type="button" id="ricerca">Cerca</button>
+                                        </div>
+                                    </div>                                          
+                                </div>
+                            </div>
+                        </form>
+					</div>
+                </div>
+                <div class="container mt-5 ps-lg-5 pe-lg-5">
+                    <div class="row justify-content-center">
+                        <div class="col-12">                             							
+                            <div class="row g-1 ">
+                                <div class="it-page-section mb-10 mb-lg-10" id="container_pubblicazioni">
+                                    <div class="cmp-card mb-3">
+                                        <div class="card-body p-0 lista-aggiuntivo">
+                                            <div class="card d-flex flex-row pt-1 pb-0 mb-1 border-bottom justify-content-between align-items-start align-items-md-center flex-column flex-md-row">
+                                                <div class="card-body p-0">
+                                                    <div class="category-top">
+                                                        <svg class="icon icon-sm icon-secondary">
+                                                            <use xlink:href="/halley/eg/assets/bootstrap-italia/svg/sprites.svg#it-files"></use>
+                                                        </svg>                                                              
+                                                        <span class="fw-semibold ps-2 text-dark">
+                                                            Pubblicazione n. 163
+                                                        </span>
+                                                    </div>
+                                                    <a onclick="MC02('1')" class="text-decoration-underline" data-element="amministration-element">
+                                                        <h5 class="card-title t-primary">
+                                                            Risarcimento danni - sinistro del 02.02.2026 - Autovettura Audi A3 targata GJ 487 MA.
+                                                        </h5>
+                                                    </a>
+                                                    <p class="text-paragraph m-0 pb-2">
+                                                        <div class="row">
+                                                            <span><strong >Mittente:</strong>    AREA AMMINISTRATIVA E FINANZIARIA - SEDE</span>
+                                                        </div>    
+                                                        <div class="row">
+                                                            <div class="col-lg-6">
+                                                                <span><strong >Tipo:</strong> DETERMINAZIONI</span>
+                                                            </div>
+                                                            <div class="col-lg-6">
+                                                                <span><strong>Atto n.</strong> 68 <strong>del</strong> 12-03-2026</span>
+                                                            </div>
+                                                        </div>
+                                                        <div class="row">
+                                                            <div class="col-lg-6"><span><strong>Pubblicazione dal </strong>13-03-2026 <strong>al </strong>28-03-2026</span></div>
+                                                        </div>
+                                                    </p>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div> 	                                                
+                                    <div class="cmp-card mb-3">
+                                        <div class="card-body p-0 lista-aggiuntivo">
+                                            <div class="card d-flex flex-row pt-1 pb-0 mb-1 border-bottom justify-content-between align-items-start align-items-md-center flex-column flex-md-row">
+                                                <div class="card-body p-0">
+                                                    <div class="category-top">
+                                                        <svg class="icon icon-sm icon-secondary">
+                                                            <use xlink:href="/halley/eg/assets/bootstrap-italia/svg/sprites.svg#it-files"></use>
+                                                        </svg>                                                              
+                                                        <span class="fw-semibold ps-2 text-dark">
+                                                            Pubblicazione n. 162
+                                                        </span>
+                                                    </div>
+                                                    <a onclick="MC02('2')" class="text-decoration-underline" data-element="amministration-element">
+                                                        <h5 class="card-title t-primary">
+                                                            Risarcimento danni - Sinistro del 08.02.2026 - Autovettura AUDI A4 targata DD694RD
+                                                        </h5>
+                                                    </a>
+                                                    <p class="text-paragraph m-0 pb-2">
+                                                        <div class="row">
+                                                            <span><strong >Mittente:</strong>    AREA AMMINISTRATIVA E FINANZIARIA - SEDE</span>
+                                                        </div>    
+                                                        <div class="row">
+                                                            <div class="col-lg-6">
+                                                                <span><strong >Tipo:</strong> DETERMINAZIONI</span>
+                                                            </div>
+                                                            <div class="col-lg-6">
+                                                                <span><strong>Atto n.</strong> 67 <strong>del</strong> 11-03-2026</span>
+                                                            </div>
+                                                        </div>
+                                                        <div class="row">
+                                                            <div class="col-lg-6"><span><strong>Pubblicazione dal </strong>13-03-2026 <strong>al </strong>28-03-2026</span></div>
+                                                        </div>
+                                                    </p>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div> 	                                                
+                                    <div class="cmp-card mb-3">
+                                        <div class="card-body p-0 lista-aggiuntivo">
+                                            <div class="card d-flex flex-row pt-1 pb-0 mb-1 border-bottom justify-content-between align-items-start align-items-md-center flex-column flex-md-row">
+                                                <div class="card-body p-0">
+                                                    <div class="category-top">
+                                                        <svg class="icon icon-sm icon-secondary">
+                                                            <use xlink:href="/halley/eg/assets/bootstrap-italia/svg/sprites.svg#it-files"></use>
+                                                        </svg>                                                              
+                                                        <span class="fw-semibold ps-2 text-dark">
+                                                            Pubblicazione n. 161
+                                                        </span>
+                                                    </div>
+                                                    <a onclick="MC02('3')" class="text-decoration-underline" data-element="amministration-element">
+                                                        <h5 class="card-title t-primary">
+                                                            Liquidazione di spesa a favore della societ&agrave; E-Fil s.r.l. per servizio PAGOPA, annualit&agrave; 2026
+                                                        </h5>
+                                                    </a>
+                                                    <p class="text-paragraph m-0 pb-2">
+                                                        <div class="row">
+                                                            <span><strong >Mittente:</strong>    AREA AMMINISTRATIVA E FINANZIARIA - SEDE</span>
+                                                        </div>    
+                                                        <div class="row">
+                                                            <div class="col-lg-6">
+                                                                <span><strong >Tipo:</strong> DETERMINAZIONI</span>
+                                                            </div>
+                                                            <div class="col-lg-6">
+                                                                <span><strong>Atto n.</strong> 66 <strong>del</strong> 11-03-2026</span>
+                                                            </div>
+                                                        </div>
+                                                        <div class="row">
+                                                            <div class="col-lg-6"><span><strong>Pubblicazione dal </strong>13-03-2026 <strong>al </strong>28-03-2026</span></div>
+                                                        </div>
+                                                    </p>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div> 	                                                
+                                    <div class="cmp-card mb-3">
+                                        <div class="card-body p-0 lista-aggiuntivo">
+                                            <div class="card d-flex flex-row pt-1 pb-0 mb-1 border-bottom justify-content-between align-items-start align-items-md-center flex-column flex-md-row">
+                                                <div class="card-body p-0">
+                                                    <div class="category-top">
+                                                        <svg class="icon icon-sm icon-secondary">
+                                                            <use xlink:href="/halley/eg/assets/bootstrap-italia/svg/sprites.svg#it-files"></use>
+                                                        </svg>                                                              
+                                                        <span class="fw-semibold ps-2 text-dark">
+                                                            Pubblicazione n. 160
+                                                        </span>
+                                                    </div>
+                                                    <a onclick="MC02('4')" class="text-decoration-underline" data-element="amministration-element">
+                                                        <h5 class="card-title t-primary">
+                                                            Liquidazione  a favore di Halley Campania - Sistema informativo comunale in Cloud SaaS - Attivazione licenze - Inventario Addestramento - Gestione Inventario Beni.
+                                                        </h5>
+                                                    </a>
+                                                    <p class="text-paragraph m-0 pb-2">
+                                                        <div class="row">
+                                                            <span><strong >Mittente:</strong>    AREA AMMINISTRATIVA E FINANZIARIA - SEDE</span>
+                                                        </div>    
+                                                        <div class="row">
+                                                            <div class="col-lg-6">
+                                                                <span><strong >Tipo:</strong> DETERMINAZIONI</span>
+                                                            </div>
+                                                            <div class="col-lg-6">
+                                                                <span><strong>Atto n.</strong> 65 <strong>del</strong> 11-03-2026</span>
+                                                            </div>
+                                                        </div>
+                                                        <div class="row">
+                                                            <div class="col-lg-6"><span><strong>Pubblicazione dal </strong>13-03-2026 <strong>al </strong>28-03-2026</span></div>
+                                                        </div>
+                                                    </p>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div> 	                                                
+                                    <div class="cmp-card mb-3">
+                                        <div class="card-body p-0 lista-aggiuntivo">
+                                            <div class="card d-flex flex-row pt-1 pb-0 mb-1 border-bottom justify-content-between align-items-start align-items-md-center flex-column flex-md-row">
+                                                <div class="card-body p-0">
+                                                    <div class="category-top">
+                                                        <svg class="icon icon-sm icon-secondary">
+                                                            <use xlink:href="/halley/eg/assets/bootstrap-italia/svg/sprites.svg#it-files"></use>
+                                                        </svg>                                                              
+                                                        <span class="fw-semibold ps-2 text-dark">
+                                                            Pubblicazione n. 159
+                                                        </span>
+                                                    </div>
+                                                    <a onclick="MC02('5')" class="text-decoration-underline" data-element="amministration-element">
+                                                        <h5 class="card-title t-primary">
+                                                            Liquidazione fattura a favore della societ&agrave; Edenred Italia
+                                                        </h5>
+                                                    </a>
+                                                    <p class="text-paragraph m-0 pb-2">
+                                                        <div class="row">
+                                                            <span><strong >Mittente:</strong>    AREA AMMINISTRATIVA E FINANZIARIA - SEDE</span>
+                                                        </div>    
+                                                        <div class="row">
+                                                            <div class="col-lg-6">
+                                                                <span><strong >Tipo:</strong> DETERMINAZIONI</span>
+                                                            </div>
+                                                            <div class="col-lg-6">
+                                                                <span><strong>Atto n.</strong> 64 <strong>del</strong> 11-03-2026</span>
+                                                            </div>
+                                                        </div>
+                                                        <div class="row">
+                                                            <div class="col-lg-6"><span><strong>Pubblicazione dal </strong>13-03-2026 <strong>al </strong>28-03-2026</span></div>
+                                                        </div>
+                                                    </p>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div> 	                                                
+                                    <div class="cmp-card mb-3">
+                                        <div class="card-body p-0 lista-aggiuntivo">
+                                            <div class="card d-flex flex-row pt-1 pb-0 mb-1 border-bottom justify-content-between align-items-start align-items-md-center flex-column flex-md-row">
+                                                <div class="card-body p-0">
+                                                    <div class="category-top">
+                                                        <svg class="icon icon-sm icon-secondary">
+                                                            <use xlink:href="/halley/eg/assets/bootstrap-italia/svg/sprites.svg#it-files"></use>
+                                                        </svg>                                                              
+                                                        <span class="fw-semibold ps-2 text-dark">
+                                                            Pubblicazione n. 158
+                                                        </span>
+                                                    </div>
+                                                    <a onclick="MC02('6')" class="text-decoration-underline" data-element="amministration-element">
+                                                        <h5 class="card-title t-primary">
+                                                            Liquidazione a favore della Coop. Rossi & Nero per il servizio di mensa scolastica - febbraio 2026.
+                                                        </h5>
+                                                    </a>
+                                                    <p class="text-paragraph m-0 pb-2">
+                                                        <div class="row">
+                                                            <span><strong >Mittente:</strong>    AREA AMMINISTRATIVA E FINANZIARIA - SEDE</span>
+                                                        </div>    
+                                                        <div class="row">
+                                                            <div class="col-lg-6">
+                                                                <span><strong >Tipo:</strong> DETERMINAZIONI</span>
+                                                            </div>
+                                                            <div class="col-lg-6">
+                                                                <span><strong>Atto n.</strong> 63 <strong>del</strong> 09-03-2026</span>
+                                                            </div>
+                                                        </div>
+                                                        <div class="row">
+                                                            <div class="col-lg-6"><span><strong>Pubblicazione dal </strong>13-03-2026 <strong>al </strong>28-03-2026</span></div>
+                                                        </div>
+                                                    </p>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div> 	                                                
+                                    <div class="cmp-card mb-3">
+                                        <div class="card-body p-0 lista-aggiuntivo">
+                                            <div class="card d-flex flex-row pt-1 pb-0 mb-1 border-bottom justify-content-between align-items-start align-items-md-center flex-column flex-md-row">
+                                                <div class="card-body p-0">
+                                                    <div class="category-top">
+                                                        <svg class="icon icon-sm icon-secondary">
+                                                            <use xlink:href="/halley/eg/assets/bootstrap-italia/svg/sprites.svg#it-files"></use>
+                                                        </svg>                                                              
+                                                        <span class="fw-semibold ps-2 text-dark">
+                                                            Pubblicazione n. 157
+                                                        </span>
+                                                    </div>
+                                                    <a onclick="MC02('7')" class="text-decoration-underline" data-element="amministration-element">
+                                                        <h5 class="card-title t-primary">
+                                                            Determina a contrarre per l'affidamento delle attivit&agrave; per << Rilievi topografici, redazione di schede monografiche, redazione del Piano Particellare di Esproprio, Frazionamenti, Accatastamenti e Picchettamenti >> per la "Realizzazione delle infrastrutture dell'area P.I.P. alla localit&agrave; Tufara Valle Patto territoriale Sviluppo 2000 Valle del Sabato". 3° perizia di variante/secondo funzionale di completamento. CUP G19J21009640003. Provvedimenti. Determina a contrarre, impegno ed affidamento diretto, ai sensi dell'art. 50 comma 1 del D.lgs. n. 36/2023. CIG BAB5709D97.
+
+
+                                                        </h5>
+                                                    </a>
+                                                    <p class="text-paragraph m-0 pb-2">
+                                                        <div class="row">
+                                                            <span><strong >Mittente:</strong>    AREA AMMINISTRATIVA E FINANZIARIA - SEDE</span>
+                                                        </div>    
+                                                        <div class="row">
+                                                            <div class="col-lg-6">
+                                                                <span><strong >Tipo:</strong> DETERMINAZIONI</span>
+                                                            </div>
+                                                            <div class="col-lg-6">
+                                                                <span><strong>Atto n.</strong> 62 <strong>del</strong> 09-03-2026</span>
+                                                            </div>
+                                                        </div>
+                                                        <div class="row">
+                                                            <div class="col-lg-6"><span><strong>Pubblicazione dal </strong>13-03-2026 <strong>al </strong>28-03-2026</span></div>
+                                                        </div>
+                                                    </p>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div> 	                                                
+                                    <div class="cmp-card mb-3">
+                                        <div class="card-body p-0 lista-aggiuntivo">
+                                            <div class="card d-flex flex-row pt-1 pb-0 mb-1 border-bottom justify-content-between align-items-start align-items-md-center flex-column flex-md-row">
+                                                <div class="card-body p-0">
+                                                    <div class="category-top">
+                                                        <svg class="icon icon-sm icon-secondary">
+                                                            <use xlink:href="/halley/eg/assets/bootstrap-italia/svg/sprites.svg#it-files"></use>
+                                                        </svg>                                                              
+                                                        <span class="fw-semibold ps-2 text-dark">
+                                                            Pubblicazione n. 156
+                                                        </span>
+                                                    </div>
+                                                    <a onclick="MC02('8')" class="text-decoration-underline" data-element="amministration-element">
+                                                        <h5 class="card-title t-primary">
+                                                            Liquidazione  Accordo transattivo spese impianto di depurazione a favore del Comune di Ceppaloni
+                                                        </h5>
+                                                    </a>
+                                                    <p class="text-paragraph m-0 pb-2">
+                                                        <div class="row">
+                                                            <span><strong >Mittente:</strong>    AREA AMMINISTRATIVA E FINANZIARIA - SEDE</span>
+                                                        </div>    
+                                                        <div class="row">
+                                                            <div class="col-lg-6">
+                                                                <span><strong >Tipo:</strong> DETERMINAZIONI</span>
+                                                            </div>
+                                                            <div class="col-lg-6">
+                                                                <span><strong>Atto n.</strong> 61 <strong>del</strong> 06-03-2026</span>
+                                                            </div>
+                                                        </div>
+                                                        <div class="row">
+                                                            <div class="col-lg-6"><span><strong>Pubblicazione dal </strong>13-03-2026 <strong>al </strong>28-03-2026</span></div>
+                                                        </div>
+                                                    </p>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div> 	                                                
+                                    <div class="cmp-card mb-3">
+                                        <div class="card-body p-0 lista-aggiuntivo">
+                                            <div class="card d-flex flex-row pt-1 pb-0 mb-1 border-bottom justify-content-between align-items-start align-items-md-center flex-column flex-md-row">
+                                                <div class="card-body p-0">
+                                                    <div class="category-top">
+                                                        <svg class="icon icon-sm icon-secondary">
+                                                            <use xlink:href="/halley/eg/assets/bootstrap-italia/svg/sprites.svg#it-files"></use>
+                                                        </svg>                                                              
+                                                        <span class="fw-semibold ps-2 text-dark">
+                                                            Pubblicazione n. 155
+                                                        </span>
+                                                    </div>
+                                                    <a onclick="MC02('9')" class="text-decoration-underline" data-element="amministration-element">
+                                                        <h5 class="card-title t-primary">
+                                                            Servizi di piccola manutenzione ordinaria - Impegno di spesa
+                                                        </h5>
+                                                    </a>
+                                                    <p class="text-paragraph m-0 pb-2">
+                                                        <div class="row">
+                                                            <span><strong >Mittente:</strong>    AREA AMMINISTRATIVA E FINANZIARIA - SEDE</span>
+                                                        </div>    
+                                                        <div class="row">
+                                                            <div class="col-lg-6">
+                                                                <span><strong >Tipo:</strong> DETERMINAZIONI</span>
+                                                            </div>
+                                                            <div class="col-lg-6">
+                                                                <span><strong>Atto n.</strong> 291 <strong>del</strong> 15-12-2025</span>
+                                                            </div>
+                                                        </div>
+                                                        <div class="row">
+                                                            <div class="col-lg-6"><span><strong>Pubblicazione dal </strong>11-03-2026 <strong>al </strong>26-03-2026</span></div>
+                                                        </div>
+                                                    </p>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div> 	                                                
+                                    <div class="cmp-card mb-3">
+                                        <div class="card-body p-0 lista-aggiuntivo">
+                                            <div class="card d-flex flex-row pt-1 pb-0 mb-1 border-bottom justify-content-between align-items-start align-items-md-center flex-column flex-md-row">
+                                                <div class="card-body p-0">
+                                                    <div class="category-top">
+                                                        <svg class="icon icon-sm icon-secondary">
+                                                            <use xlink:href="/halley/eg/assets/bootstrap-italia/svg/sprites.svg#it-files"></use>
+                                                        </svg>                                                              
+                                                        <span class="fw-semibold ps-2 text-dark">
+                                                            Pubblicazione n. 154
+                                                        </span>
+                                                    </div>
+                                                    <a onclick="MC02('10')" class="text-decoration-underline" data-element="amministration-element">
+                                                        <h5 class="card-title t-primary">
+                                                            Liquidazione App software per gestione ticket mensa scolastica - seconda quota
+                                                        </h5>
+                                                    </a>
+                                                    <p class="text-paragraph m-0 pb-2">
+                                                        <div class="row">
+                                                            <span><strong >Mittente:</strong>    AREA AMMINISTRATIVA E FINANZIARIA - SEDE</span>
+                                                        </div>    
+                                                        <div class="row">
+                                                            <div class="col-lg-6">
+                                                                <span><strong >Tipo:</strong> DETERMINAZIONI</span>
+                                                            </div>
+                                                            <div class="col-lg-6">
+                                                                <span><strong>Atto n.</strong> 59 <strong>del</strong> 06-03-2026</span>
+                                                            </div>
+                                                        </div>
+                                                        <div class="row">
+                                                            <div class="col-lg-6"><span><strong>Pubblicazione dal </strong>09-03-2026 <strong>al </strong>24-03-2026</span></div>
+                                                        </div>
+                                                    </p>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div> 	                                                
+                                    <div class="d-flex justify-content-center mt-5">
+                                        <nav class="pagination-wrapper" aria-label="Esempio di navigazione simple mode pt-5 mt-5">
+                                            <ul class="pagination" aria-label="Pagina 1 di 14" style="list-style-type: none;">
+                                            <li class="page-item disabled" id="btPrec">
+                                                <a class="page-link" tabindex="-1" aria-hidden="true" onclick="PMC01()">
+                                                <svg class="icon icon-primary"><use href="https://www.comune.roccabascerana.av.it/assets/bootstrap-italia/svg/sprites.svg&num;it-chevron-left"></use></svg>
+                                                <span class="visually-hidden">Pagina precedente</span>
+                                                </a>
+                                            </li>
+                                            <li class="page-item"><span class="page-link" id="pagCorrente" aria-current="page">1</span></li>
+                                            <li class="page-item"><span class="page-link">/</span></li>
+                                            <li class="page-item"><span class="page-link" id="totalePagine">14</span></li>
+                                            <li class="page-item visually-hidden">
+                                                <a class="page-link" aria-current="page" id="pagMobile">Pagina 1 di 14</a>
+                                            </li> 
+                                            <li class="page-item" id="btSucc">
+                                                <a class="page-link" onclick="PMC02()">
+                                                <span class="visually-hidden">Pagina successiva</span>
+                                                <svg class="icon icon-primary"><use href="https://www.comune.roccabascerana.av.it/assets/bootstrap-italia/svg/sprites.svg&num;it-chevron-right"></use></svg>
+                                                </a>
+                                            </li>
+                                            </ul>
+                                            <div class="form-group mt-5 mt-lg-0" style="min-width: 145px;">
+                                                <div class="input-group">
+                                                    <input type="text" class="form-control" id="jumpToPage" maxlength="3" placeholder="n. pagina" onkeydown="return nonNum(event)">
+                                                    <label class="active text-dark" for="jumpToPage"><span aria-hidden="true">Vai a ...</span></label>
+                                                    <div class="input-group-append">
+                                                        <button class="btn btn-primary" style="width: 30px;" type="button" id="button-4" onclick="PMC03()">
+                                                            <svg class="icon icon-white" style="margin-left: -17px;"><use href="https://www.comune.roccabascerana.av.it/assets/bootstrap-italia/svg/sprites.svg&num;it-chevron-right"></use></svg>
+                                                        </button>
+                                                    </div>  
+                                                </div>                                                              
+                                            </div> 
+                                        
+                                        </nav>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div> 						
+                <div class="mb-2 text-end">MC - Messi notificatori 80.00.07</div> 
+	</div>                                		
