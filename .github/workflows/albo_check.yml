@@ -2,9 +2,9 @@ name: Albo Pretorio Check
 
 on:
   schedule:
-    # Ogni 3 ore, dalle 7:00 alle 22:00 ora italiana (UTC+1/+2)
-    # In UTC: dalle 6:00 alle 21:00
-    - cron: '0 7,10,13,16,19,22 * * *'
+    # Ogni 3 ore, dalle 9:00 alle 18:00 ora italiana (UTC+1/+2)
+    # In UTC: dalle 8:00 alle 17:00
+    - cron: '0 9,12,15,18 * * *'
   workflow_dispatch:  # permette di avviarlo manualmente dalla UI di GitHub
 
 jobs:
