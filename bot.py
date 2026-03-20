@@ -2,10 +2,6 @@
 Albo Pretorio Bot - Comune di Roccabascerana
 Sistema Halley EG / EGHOMEPAGE.HBL
 
-Modalità operative:
-  --once     : controlla nuovi atti e notifica (usato da GitHub Actions)
-  --telegram : avvia il bot in ascolto dei comandi Telegram (locale)
-
 Comandi Telegram:
   /start        — benvenuto
   /abbonati     — iscriviti alle notifiche
@@ -38,15 +34,17 @@ from telegram.ext import Application, CommandHandler, MessageHandler, ContextTyp
 def load_config():
     cfg = {}
     if os.environ.get("BOT_TOKEN"):
-        cfg["BOT_TOKEN"]  = os.environ["BOT_TOKEN"]
-        cfg["ADMIN_IDS"]  = [int(x.strip()) for x in os.environ.get("CHAT_IDS", "").split(",") if x.strip()]
-        cfg["ALBO_URL"]   = os.environ.get("ALBO_URL", "https://www.comune.roccabascerana.av.it/EG0/EGHOMEPAGE.HBL")
+        cfg["BOT_TOKEN"]        = os.environ["BOT_TOKEN"]
+        cfg["ADMIN_IDS"]        = [int(x.strip()) for x in os.environ.get("CHAT_IDS", "").split(",") if x.strip()]
+        cfg["ALBO_URL"]         = os.environ.get("ALBO_URL", "https://www.comune.roccabascerana.av.it/EG0/EGHOMEPAGE.HBL")
+        cfg["INTERVAL_MINUTES"] = int(os.environ.get("INTERVAL_MINUTES", "180"))
     else:
         try:
             import config
-            cfg["BOT_TOKEN"] = config.BOT_TOKEN
-            cfg["ADMIN_IDS"] = config.CHAT_IDS
-            cfg["ALBO_URL"]  = getattr(config, "ALBO_URL", "https://www.comune.roccabascerana.av.it/EG0/EGHOMEPAGE.HBL")
+            cfg["BOT_TOKEN"]        = config.BOT_TOKEN
+            cfg["ADMIN_IDS"]        = config.CHAT_IDS
+            cfg["ALBO_URL"]         = getattr(config, "ALBO_URL", "https://www.comune.roccabascerana.av.it/EG0/EGHOMEPAGE.HBL")
+            cfg["INTERVAL_MINUTES"] = getattr(config, "INTERVAL_MINUTES", 180)
         except ImportError:
             print("ERRORE: config.py non trovato.")
             sys.exit(1)
@@ -158,7 +156,6 @@ async def open_session(client: httpx.AsyncClient):
     except httpx.HTTPError as e:
         log.error(f"Errore sessione: {e}")
         return None
-
     soup   = BeautifulSoup(r.text, "html.parser")
     jb_tag = soup.find("meta", {"name": "jb"})
     jb     = jb_tag["content"] if jb_tag and jb_tag.get("content") else ""
@@ -209,7 +206,7 @@ async def enrich_with_pdf(client, session_url, items):
                 content=f"&F=MC02&NUMRIGA={num_riga}&en={ENTE}".encode(),
                 headers=HEADERS
             )
-            soup2 = BeautifulSoup(r2.text, "html.parser")
+            soup2    = BeautifulSoup(r2.text, "html.parser")
             allegati = []
             for func in ["MC96", "MC97", "MC98", "MC99"]:
                 pattern = re.compile(rf"{func}\(")
@@ -367,50 +364,6 @@ async def notify(bot, item):
         await send_item_to_chat(bot, chat_id, item)
 
 # ---------------------------------------------------------------------------
-# Logica principale: controlla nuovi atti e notifica (GitHub Actions)
-# ---------------------------------------------------------------------------
-async def run_check():
-    log.info("=== Controllo albo ===")
-    bot  = Bot(token=CONFIG["BOT_TOKEN"])
-    seen = load_seen()
-
-    # Prima esecuzione: carica baseline senza notifiche
-    if not seen:
-        log.info("Prima esecuzione: carico baseline...")
-        html = await fetch_albo_html()
-        if html:
-            items = parse_albo_html(html)
-            seen  = {item_id(i) for i in items}
-            save_seen(seen)
-            log.info(f"Baseline: {len(seen)} atti.")
-        return
-
-    html = await fetch_albo_html()
-    if not html:
-        log.error("Impossibile raggiungere l'albo.")
-        return
-
-    items     = parse_albo_html(html)
-    new_items = [i for i in items if item_id(i) not in seen]
-
-    if new_items:
-        log.info(f"🆕 {len(new_items)} nuovi atti — recupero PDF...")
-        async with httpx.AsyncClient(follow_redirects=True, timeout=60) as client:
-            session_url = await open_session(client)
-            if session_url:
-                await enrich_with_pdf(client, session_url, new_items)
-        new_seen = set(seen)
-        for item in new_items:
-            await notify(bot, item)
-            new_seen.add(item_id(item))
-        save_seen(new_seen)
-        seen = new_seen
-    else:
-        log.info("Nessun nuovo atto.")
-
-    await send_heartbeat(bot, seen)
-
-# ---------------------------------------------------------------------------
 # Comandi Telegram
 # ---------------------------------------------------------------------------
 async def cmd_start(update: Update, context: ContextTypes.DEFAULT_TYPE):
@@ -510,10 +463,53 @@ async def cmd_unknown(update: Update, context: ContextTypes.DEFAULT_TYPE):
     await update.message.reply_text("Non riconosco questo tipo di messaggio." + MENU_TEXT, parse_mode=ParseMode.MARKDOWN)
 
 # ---------------------------------------------------------------------------
-# Modalità bot Telegram interattivo (uso locale)
+# Loop polling automatico
 # ---------------------------------------------------------------------------
-async def run_telegram():
-    log.info("=== Bot Telegram avviato in modalità interattiva ===")
+async def polling_loop(app):
+    seen = load_seen()
+    bot  = app.bot
+
+    if not seen:
+        log.info("Prima esecuzione: carico baseline...")
+        html = await fetch_albo_html()
+        if html:
+            items = parse_albo_html(html)
+            seen  = {item_id(i) for i in items}
+            save_seen(seen)
+            log.info(f"Baseline: {len(seen)} atti.")
+
+    log.info(f"Polling ogni {CONFIG['INTERVAL_MINUTES']} min.")
+    while True:
+        await asyncio.sleep(CONFIG["INTERVAL_MINUTES"] * 60)
+        try:
+            html = await fetch_albo_html()
+            if not html:
+                continue
+            items     = parse_albo_html(html)
+            new_seen  = set(seen)
+            new_items = [i for i in items if item_id(i) not in seen]
+            if new_items:
+                log.info(f"🆕 {len(new_items)} nuovi atti — recupero PDF...")
+                async with httpx.AsyncClient(follow_redirects=True, timeout=60) as client:
+                    session_url = await open_session(client)
+                    if session_url:
+                        await enrich_with_pdf(client, session_url, new_items)
+                for item in new_items:
+                    await notify(bot, item)
+                    new_seen.add(item_id(item))
+                save_seen(new_seen)
+                seen = new_seen
+            else:
+                log.info("Nessun nuovo atto.")
+            await send_heartbeat(bot, seen)
+        except Exception as e:
+            log.error(f"Errore loop: {e}", exc_info=True)
+
+# ---------------------------------------------------------------------------
+# Entry point
+# ---------------------------------------------------------------------------
+async def main():
+    log.info("=== Albo Pretorio Bot avviato ===")
     app = Application.builder().token(CONFIG["BOT_TOKEN"]).build()
     app.add_handler(CommandHandler("start",       cmd_start))
     app.add_handler(CommandHandler("abbonati",    cmd_abbonati))
@@ -521,18 +517,12 @@ async def run_telegram():
     app.add_handler(CommandHandler("atti",        cmd_atti))
     app.add_handler(CommandHandler("controlla",   cmd_controlla))
     app.add_handler(MessageHandler(filters.ALL,   cmd_unknown))
+
     async with app:
         await app.start()
         await app.updater.start_polling()
-        log.info("Bot in ascolto... (CTRL+C per uscire)")
-        await asyncio.Event().wait()
+        log.info("Bot in ascolto comandi + polling automatico ogni 3 ore...")
+        await polling_loop(app)
 
-# ---------------------------------------------------------------------------
-# Entry point
-# ---------------------------------------------------------------------------
 if __name__ == "__main__":
-    if "--telegram" in sys.argv:
-        asyncio.run(run_telegram())
-    else:
-        # Default: modalità GitHub Actions (--once)
-        asyncio.run(run_check())
+    asyncio.run(main())
