@@ -2,10 +2,8 @@ name: Albo Pretorio Check
 
 on:
   schedule:
-    # Ogni 6 ore, dalle 9:00 alle 18:00 ora italiana (UTC+1/+2)
-    # In UTC: dalle 8:00 alle 20:00
-    - cron: '0 7,13,19 * * *'
-  workflow_dispatch:  # permette di avviarlo manualmente dalla UI di GitHub
+    - cron: '0 9,15,21 * * *'
+  workflow_dispatch:
 
 jobs:
   check:
@@ -14,6 +12,8 @@ jobs:
     steps:
       - name: Checkout repository
         uses: actions/checkout@v4
+        with:
+          token: ${{ secrets.GITHUB_TOKEN }}
 
       - name: Configura Python
         uses: actions/setup-python@v5
@@ -23,27 +23,19 @@ jobs:
       - name: Installa dipendenze
         run: pip install -r requirements.txt
 
-      - name: Ripristina database atti visti
-        uses: actions/cache@v4
-        with:
-          path: |
-            seen_items.json
-            last_heartbeat.txt
-          key: seen-items-${{ github.run_id }}
-          restore-keys: |
-            seen-items-
+      - name: Installa Playwright
+        run: python -m playwright install chromium
 
-      - name: Esegui controllo albo
+      - name: Esegui bot
         env:
           BOT_TOKEN: ${{ secrets.BOT_TOKEN }}
           CHAT_IDS: ${{ secrets.CHAT_IDS }}
-        run: python bot.py --once
+        run: timeout 21000 python bot.py || true
 
-      - name: Salva database aggiornato
-        uses: actions/cache/save@v4
-        if: always()
-        with:
-          path: |
-            seen_items.json
-            last_heartbeat.txt
-          key: seen-items-${{ github.run_id }}
+      - name: Salva database nel repository
+        run: |
+          git config user.name "AlboBot"
+          git config user.email "bot@alborocca"
+          git add seen_items.json subscribers.json || true
+          git diff --staged --quiet || git commit -m "aggiornamento database [skip ci]"
+          git push || true
