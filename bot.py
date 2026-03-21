@@ -125,7 +125,7 @@ def save_seen(seen):
 # ---------------------------------------------------------------------------
 async def send_heartbeat(bot, seen):
     now = datetime.utcnow()
-    if now.hour != 9:
+    if now.hour != 7:
         return
     subs = load_subscribers()
     text = (
